@@ -1,0 +1,43 @@
+<resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
+
+    <string name="app_name">Mordor</string>
+    <string name="app_loading">Initializing</string>
+
+    <string name="title_activity_new_profile">Create Rate Tracker</string>
+    <string name="title_activity_view_profile">Rate Tracker</string>
+    <string name="title_activity_widget_configure">Select Rate Tracker</string>
+    <string name="title_profiles">My Rate Trackers</string>
+
+    <!-- SyncAdapter related -->
+    <string name="sync_account_type" translatable="false">mordor.denisura.github.com</string>
+    <string name="app_content_authority" translatable="false">com.github.denisura.mordor</string>
+
+
+    <string name="buttonCreate">Create</string>
+    <string name="buttonCreateProfileDescription">Create profile</string>
+    <string name="buttonCancel">Cancel</string>
+    <string name="buttonCancelDescription">Cancel</string>
+
+    <string name="deleted">Deleted</string>
+    <string name="undo">UNDO</string>
+
+    <string name="format_credit_score_bucket">FICO Score: <xliff:g id="score">%1$s</xliff:g></string>
+    <string name="format_loan_to_value_bucket">Percent Down: <xliff:g id="down">%1$s</xliff:g></string>
+    <string name="format_program"><xliff:g id="program">%1$s</xliff:g></string>
+    <string name="format_location">Location: <xliff:g id="location">%1$s</xliff:g></string>
+
+    <string name="label_location">Location</string>
+    <string name="label_credit_score">Cedit Score</string>
+    <string name="label_program">Loan Program</string>
+    <string name="label_downpayment">Percent Down</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="configure">Configure</string>
+    <string name="add_widget">Add widget</string>
+
+
+    <string name="widget_prefs_prefix_profile_id" translatable="false">widget_profile_id_</string>
+
+    <string name="intent_action_data_updated" translatable="false">com.github.denisura.mordor.app.ACTION_DATA_UPDATED</string>
+
+
+</resources>
