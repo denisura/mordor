@@ -11,7 +11,7 @@ import com.github.denisura.mordor.R;
 import com.github.denisura.mordor.SingleFragmentActivity;
 import com.github.denisura.mordor.profile.collection.ViewCollectionActivity;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class NewProfileActivity extends SingleFragmentActivity implements NewProfileFragment.Callbacks {
@@ -19,7 +19,7 @@ public class NewProfileActivity extends SingleFragmentActivity implements NewPro
     final static String LOG_TAG = NewProfileActivity.class.getCanonicalName();
 
 
-    @Bind(R.id.toolbar)
+    @BindView(R.id.toolbar)
     public Toolbar mToolbar;
 
     @Override

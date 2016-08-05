@@ -39,9 +39,17 @@ import org.joda.time.format.DateTimeFormatter;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
+import static com.github.denisura.mordor.R.id.creditScoreBucket;
+import static com.github.denisura.mordor.R.id.currentRate;
+import static com.github.denisura.mordor.R.id.lineChart;
+import static com.github.denisura.mordor.R.id.loanToValueBucket;
+import static com.github.denisura.mordor.R.id.location;
+import static com.github.denisura.mordor.R.id.program;
+import static com.github.denisura.mordor.R.id.trend_icon;
 import static com.github.denisura.mordor.utils.Utilities.formatCreditScoreBucket;
 import static com.github.denisura.mordor.utils.Utilities.formatCurrentRate;
 import static com.github.denisura.mordor.utils.Utilities.formatLoanToValueBucket;
@@ -62,25 +70,28 @@ public class ViewProfileFragment extends Fragment
 
     private static final String ARG_PROFILE_ID = "profile_id";
 
-    @Bind(R.id.creditScoreBucket)
+    private Unbinder unbinder;
+
+
+    @BindView(creditScoreBucket)
     TextView mCreditScoreBucket;
 
-    @Bind(R.id.loanToValueBucket)
+    @BindView(loanToValueBucket)
     TextView mLoanToValueBucket;
 
-    @Bind(R.id.program)
+    @BindView(program)
     TextView mProgram;
 
-    @Bind(R.id.currentRate)
+    @BindView(currentRate)
     TextView mCurrentRate;
 
-    @Bind(R.id.trend_icon)
+    @BindView(trend_icon)
     ImageView mTrendIcon;
 
-    @Bind(R.id.location)
+    @BindView(location)
     TextView mLocation;
 
-    @Bind(R.id.lineChart)
+    @BindView(lineChart)
     LineChart mChart;
 
 
@@ -103,7 +114,7 @@ public class ViewProfileFragment extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_view_profile, container, false);
-        ButterKnife.bind(this, rootView);
+        unbinder = ButterKnife.bind(this, rootView);
 
         mContext = getActivity();
 
@@ -130,13 +141,18 @@ public class ViewProfileFragment extends Fragment
     }
 
     @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
+
+    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         Log.d(LOG_TAG, "onActivityCreated");
         getLoaderManager().initLoader(PROFILE_LOADER, null, this);
         getLoaderManager().initLoader(HISTORY_LOADER, null, this);
         super.onActivityCreated(savedInstanceState);
     }
-
 
 
     @Override
@@ -211,11 +227,13 @@ public class ViewProfileFragment extends Fragment
 
 
     private void handleHistoryData(Cursor data) {
+
+        Log.d(LOG_TAG, "handleHistoryData data.count:" + data.getCount());
         if (data.getCount() < 1) {
             mChart.setNoDataTextDescription("No historical data is available at this moment.");
             return;
         }
-
+        mChart.invalidate();
 
         ArrayList<String> xVals = new ArrayList<String>();
         ArrayList<Entry> yVals = new ArrayList<Entry>();
@@ -239,7 +257,19 @@ public class ViewProfileFragment extends Fragment
         }
 
 
-        LineDataSet set = new LineDataSet(yVals, "");
+        LineDataSet set;
+
+//        if (mChart.getData() != null &&
+//                mChart.getData().getDataSetCount() > 0) {
+//            set = (LineDataSet) mChart.getData().getDataSetByIndex(0);
+//            set.setYVals(yVals);
+//            mChart.getData().notifyDataChanged();
+//            mChart.notifyDataSetChanged();
+//            return;
+//        }
+
+
+         set = new LineDataSet(yVals, "");
 
         // set the line to be drawn like this "- - - - - -"
         set.enableDashedLine(10f, 5f, 0f);
@@ -270,7 +300,9 @@ public class ViewProfileFragment extends Fragment
 
         switch (loader.getId()) {
             case HISTORY_LOADER:
-                mChart.invalidate();
+                if (mChart != null) {
+                    mChart.invalidate();
+                }
                 break;
             case PROFILE_LOADER:
 

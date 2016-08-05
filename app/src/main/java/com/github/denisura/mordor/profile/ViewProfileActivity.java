@@ -12,7 +12,7 @@ import com.github.denisura.mordor.R;
 import com.github.denisura.mordor.SingleFragmentActivity;
 import com.github.denisura.mordor.profile.collection.ViewCollectionActivity;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ViewProfileActivity extends SingleFragmentActivity {
@@ -21,7 +21,7 @@ public class ViewProfileActivity extends SingleFragmentActivity {
     final static String EXTRA_PROFILE_ID = LOG_TAG + "_extra_profile_id";
     final static long INVALID_PROFILE_ID = -1;
 
-    @Bind(R.id.toolbar)
+    @BindView(R.id.toolbar)
     public Toolbar mToolbar;
 
     @Override

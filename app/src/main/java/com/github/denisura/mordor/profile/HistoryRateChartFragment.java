@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.github.denisura.mordor.R;
 
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 
 public class HistoryRateChartFragment extends Fragment
@@ -25,6 +26,7 @@ public class HistoryRateChartFragment extends Fragment
     public static final int HISTORY_LOADER = 0;
 
     private static final String ARG_HISTORY_PROFILE_URI = "history_profile_uri";
+    private Unbinder unbinder;
 
     public static HistoryRateChartFragment newInstance(String profileUri) {
         Bundle args = new Bundle();
@@ -38,9 +40,14 @@ public class HistoryRateChartFragment extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_history_rate, container, false);
-        ButterKnife.bind(this, rootView);
-
+        unbinder = ButterKnife.bind(this, rootView);
         return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 
     @Override

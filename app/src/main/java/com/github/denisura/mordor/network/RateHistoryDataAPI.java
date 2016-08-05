@@ -16,20 +16,21 @@ import com.github.denisura.mordor.database.ProfileColumns;
 import com.github.denisura.mordor.model.History;
 import com.github.denisura.mordor.model.ProfileModel;
 import com.github.denisura.mordor.model.Sample;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import retrofit.Call;
-import retrofit.Callback;
-import retrofit.GsonConverterFactory;
-import retrofit.Retrofit;
-import retrofit.http.GET;
-import retrofit.http.QueryMap;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.GET;
+import retrofit2.http.QueryMap;
 
 import static com.github.denisura.mordor.utils.Utilities.updateWidgets;
 
@@ -91,7 +92,7 @@ public class RateHistoryDataAPI {
         Call<History> call = mApiService.getRtaesHistory(options);
         call.enqueue(new Callback<History>() {
             @Override
-            public void onResponse(retrofit.Response<History> response, Retrofit retrofit) {
+            public void onResponse(Call<History> call, Response<History> response) {
                 int statusCode = response.code();
 
                 if (statusCode != 200) {
@@ -183,10 +184,11 @@ public class RateHistoryDataAPI {
                 resolver.notifyChange(thisProfileHistoryUri, null);
 
                 updateWidgets(mContext);
+
             }
 
             @Override
-            public void onFailure(Throwable t) {
+            public void onFailure(Call<History> call, Throwable t) {
                 Log.e(LOG_TAG, "onFailure", t);
             }
         });

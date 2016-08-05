@@ -10,7 +10,6 @@ import android.support.v4.content.Loader;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,8 +21,9 @@ import com.github.denisura.mordor.database.AppProvider;
 import com.github.denisura.mordor.model.ProfileModel;
 import com.github.denisura.mordor.profile.collection.helper.SimpleItemTouchHelperCallback;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 
 public class ViewCollectionFragment extends Fragment
@@ -36,12 +36,12 @@ public class ViewCollectionFragment extends Fragment
     private static final String ARG_PROFILE_ID = "profile_id";
 
     private ProfileCollectionAdapter mAdapter;
-    private StaggeredGridLayoutManager mLayoutManager;
+    private LinearLayoutManager mLayoutManager;
     private ProfileCollectionItemViewHolder.Callbacks mCallbacks;
+    private Unbinder unbinder;
 
-
-    @Bind(R.id.recycler_view)
-    RecyclerView mRecyclerView;
+    @BindView(R.id.recycler_view)
+    public RecyclerView mRecyclerView;
 
     @Override
     public void onAttach(Context context) {
@@ -68,9 +68,9 @@ public class ViewCollectionFragment extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_profile_collection, container, false);
-        ButterKnife.bind(this, rootView);
+        unbinder = ButterKnife.bind(this, rootView);
 
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+        mLayoutManager = new LinearLayoutManager(getActivity());
 
         mRecyclerView.setLayoutManager(mLayoutManager);
 
@@ -86,10 +86,11 @@ public class ViewCollectionFragment extends Fragment
         return rootView;
     }
 
+
     @Override
     public void onDestroyView() {
-        ButterKnife.unbind(this);
         super.onDestroyView();
+        unbinder.unbind();
     }
 
     @Override

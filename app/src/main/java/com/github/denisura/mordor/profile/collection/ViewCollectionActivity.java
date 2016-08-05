@@ -15,9 +15,11 @@ import com.github.denisura.mordor.SingleFragmentActivity;
 import com.github.denisura.mordor.profile.NewProfileActivity;
 import com.github.denisura.mordor.profile.ViewProfileActivity;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static com.github.denisura.mordor.R.id.fab;
 
 
 public class ViewCollectionActivity
@@ -29,11 +31,10 @@ public class ViewCollectionActivity
     final static long INVALID_PROFILE_ID = -1;
 
 
-    @Bind(R.id.toolbar)
+    @BindView(R.id.toolbar)
     public Toolbar mToolbar;
 
-
-    @Bind(R.id.fab)
+    @BindView(fab)
     public FloatingActionButton mFab;
 
 
@@ -75,7 +76,7 @@ public class ViewCollectionActivity
     }
 
 
-    @OnClick(R.id.fab)
+    @OnClick(fab)
     public void onFabCLick(View view) {
         startActivity(NewProfileActivity.newIntent(this));
 //        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)

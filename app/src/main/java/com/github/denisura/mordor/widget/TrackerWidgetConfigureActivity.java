@@ -15,7 +15,7 @@ import com.github.denisura.mordor.profile.collection.ProfileCollectionItemViewHo
 import com.github.denisura.mordor.profile.collection.ViewCollectionFragment;
 import com.github.denisura.mordor.utils.WidgetUtilities;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.github.denisura.mordor.utils.Utilities.updateWidgets;
@@ -38,7 +38,7 @@ public class TrackerWidgetConfigureActivity extends SingleFragmentActivity
     EditText mAppWidgetText;
 
 
-    @Bind(R.id.toolbar)
+    @BindView(R.id.toolbar)
     public Toolbar mToolbar;
 
     public TrackerWidgetConfigureActivity() {

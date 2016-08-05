@@ -12,9 +12,16 @@ import com.github.denisura.mordor.R;
 import com.github.denisura.mordor.model.ProfileModel;
 import com.github.denisura.mordor.profile.collection.helper.ItemTouchHelperViewHolder;
 
-import butterknife.Bind;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.github.denisura.mordor.R.id.creditScoreBucket;
+import static com.github.denisura.mordor.R.id.currentRate;
+import static com.github.denisura.mordor.R.id.loanToValueBucket;
+import static com.github.denisura.mordor.R.id.location;
+import static com.github.denisura.mordor.R.id.program;
+import static com.github.denisura.mordor.R.id.trend_icon;
 import static com.github.denisura.mordor.utils.Utilities.formatCreditScoreBucket;
 import static com.github.denisura.mordor.utils.Utilities.formatCurrentRate;
 import static com.github.denisura.mordor.utils.Utilities.formatLoanToValueBucket;
@@ -30,22 +37,22 @@ public class ProfileCollectionItemViewHolder
     private Context mContext;
     private Callbacks mCallbacks;
 
-    @Bind(R.id.creditScoreBucket)
+    @BindView(creditScoreBucket)
     TextView mCreditScoreBucket;
 
-    @Bind(R.id.loanToValueBucket)
+    @BindView(loanToValueBucket)
     TextView mLoanToValueBucket;
 
-    @Bind(R.id.program)
+    @BindView(program)
     TextView mProgram;
 
-    @Bind(R.id.currentRate)
+    @BindView(currentRate)
     TextView mCurrentRate;
 
-    @Bind(R.id.location)
+    @BindView(location)
     TextView mLocation;
 
-    @Bind(R.id.trend_icon)
+    @BindView(trend_icon)
     ImageView mTrendIcon;
 
     public ProfileCollectionItemViewHolder(View itemView, ProfileCollectionItemViewHolder.Callbacks callbacks) {

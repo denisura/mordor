@@ -19,10 +19,15 @@ import com.github.denisura.mordor.database.ProfileColumns;
 import com.github.denisura.mordor.model.ProfileModel;
 import com.github.denisura.mordor.sync.ProfileSyncAdapter;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 
+import static com.github.denisura.mordor.R.id.credit_score_spinner;
+import static com.github.denisura.mordor.R.id.loan_programm_spinner;
+import static com.github.denisura.mordor.R.id.loantovalue_spinner;
+import static com.github.denisura.mordor.R.id.state_spinner;
 import static com.github.denisura.mordor.utils.Utilities.getCreditScoreCodes;
 import static com.github.denisura.mordor.utils.Utilities.getCreditScoreValues;
 import static com.github.denisura.mordor.utils.Utilities.getDownpaymentCodes;
@@ -38,17 +43,19 @@ public class NewProfileFragment extends Fragment {
 
     final static String LOG_TAG = NewProfileFragment.class.getCanonicalName();
     private Callbacks mCallbacks;
+    private Unbinder unbinder;
 
-    @Bind(R.id.loan_programm_spinner)
+
+    @BindView(loan_programm_spinner)
     Spinner mLoanProgramSpinner;
 
-    @Bind(R.id.credit_score_spinner)
+    @BindView(credit_score_spinner)
     Spinner mCreditScoreSpinner;
 
-    @Bind(R.id.loantovalue_spinner)
+    @BindView(loantovalue_spinner)
     Spinner mLoanToValueSpinner;
 
-    @Bind(R.id.state_spinner)
+    @BindView(state_spinner)
     Spinner mStateSpinner;
 
     public interface Callbacks {
@@ -80,7 +87,7 @@ public class NewProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_new_profile, container, false);
-        ButterKnife.bind(this, rootView);
+        unbinder = ButterKnife.bind(this, rootView);
 
         setupStateSpinner();
         setupLoanProgramSpinner();
@@ -91,8 +98,8 @@ public class NewProfileFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
-        ButterKnife.unbind(this);
         super.onDestroyView();
+        unbinder.unbind();
     }
 
     @OnClick(R.id.buttonSave)
