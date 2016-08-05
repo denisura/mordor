@@ -22,7 +22,6 @@ import com.github.denisura.mordor.R;
 import com.github.denisura.mordor.database.AppProvider;
 import com.github.denisura.mordor.model.ProfileModel;
 import com.github.denisura.mordor.model.Sample;
-import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
@@ -117,6 +116,7 @@ public class ViewProfileFragment extends Fragment
         unbinder = ButterKnife.bind(this, rootView);
 
         mContext = getActivity();
+        Log.d(LOG_TAG, "onCreateView");
 
         mChart.invalidate();
         mChart.setOnChartGestureListener(this);
@@ -142,8 +142,9 @@ public class ViewProfileFragment extends Fragment
 
     @Override
     public void onDestroyView() {
-        super.onDestroyView();
+        Log.d(LOG_TAG, "onDestroyView");
         unbinder.unbind();
+        super.onDestroyView();
     }
 
     @Override
@@ -233,7 +234,6 @@ public class ViewProfileFragment extends Fragment
             mChart.setNoDataTextDescription("No historical data is available at this moment.");
             return;
         }
-        mChart.invalidate();
 
         ArrayList<String> xVals = new ArrayList<String>();
         ArrayList<Entry> yVals = new ArrayList<Entry>();
@@ -291,7 +291,7 @@ public class ViewProfileFragment extends Fragment
 
         // set data
         mChart.setData(lineData);
-        mChart.animateX(1000, Easing.EasingOption.EaseInOutQuart);
+        mChart.invalidate();
     }
 
     @Override
