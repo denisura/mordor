@@ -33,12 +33,14 @@ Getting Started
 ---------------
 Get a [Zillow Web Services ID] (http://www.zillow.com/webservice/Registration.htm) to use when making your API calls. 
 
-Add your API key to ``` gradle.properties ```
+Add your the following env variables in your global ``` gradle.properties ```
 
 ```
 ZILLOW_PARTNER_ID = "api_key_here"
+MORDOR_SIGNING_KEY_ALIAS="SIGNING_KEY_ALIAS"
+MORDOR_SIGNING_KEY_PASSWORD="SIGNING_KEY_PASSWORD"
+MORDOR_SIGNING_STORE_PASSWORD="SIGNING_STORE_PASSWORD"
 ```
-
 
 To build this project, run
 

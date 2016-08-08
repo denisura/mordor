@@ -26,9 +26,20 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    signingConfigs {
+        release {
+            keyAlias MORDOR_SIGNING_KEY_ALIAS
+            keyPassword MORDOR_SIGNING_KEY_PASSWORD
+            storeFile file('../mordor.keystores')
+            storePassword MORDOR_SIGNING_STORE_PASSWORD
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
