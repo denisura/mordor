@@ -6,7 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
 import com.github.denisura.mordor.R;
-import com.github.denisura.mordor.database.ProfileColumns;
+import com.github.denisura.mordor.data.database.ProfileColumns;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -75,8 +75,48 @@ public class Utilities {
         stateCodes.add(6, "CO");
         stateCodes.add(7, "CT");
         stateCodes.add(8, "DE");
-
-        //TODO add more states here
+        stateCodes.add(9, "FL");
+        stateCodes.add(10, "GA");
+        stateCodes.add(11, "HI");
+        stateCodes.add(12, "ID");
+        stateCodes.add(13, "IL");
+        stateCodes.add(14, "IN");
+        stateCodes.add(15, "IA");
+        stateCodes.add(16, "KS");
+        stateCodes.add(17, "KY");
+        stateCodes.add(18, "LA");
+        stateCodes.add(19, "ME");
+        stateCodes.add(20, "MD");
+        stateCodes.add(21, "MA");
+        stateCodes.add(22, "MI");
+        stateCodes.add(23, "MN");
+        stateCodes.add(24, "MS");
+        stateCodes.add(25, "MO");
+        stateCodes.add(26, "MT");
+        stateCodes.add(27, "NE");
+        stateCodes.add(28, "NV");
+        stateCodes.add(29, "NH");
+        stateCodes.add(30, "NJ");
+        stateCodes.add(31, "NM");
+        stateCodes.add(32, "NY");
+        stateCodes.add(33, "NC");
+        stateCodes.add(34, "ND");
+        stateCodes.add(35, "OH");
+        stateCodes.add(36, "OK");
+        stateCodes.add(37, "OR");
+        stateCodes.add(38, "PA");
+        stateCodes.add(39, "RI");
+        stateCodes.add(40, "SC");
+        stateCodes.add(41, "SD");
+        stateCodes.add(42, "TN");
+        stateCodes.add(43, "TX");
+        stateCodes.add(44, "UT");
+        stateCodes.add(45, "VT");
+        stateCodes.add(46, "VA");
+        stateCodes.add(47, "WA");
+        stateCodes.add(48, "WV");
+        stateCodes.add(49, "WI");
+        stateCodes.add(50, "WY");
 
         return stateCodes;
     }
@@ -93,8 +133,49 @@ public class Utilities {
         stateNames.add(6, "Colorado");
         stateNames.add(7, "Connecticut");
         stateNames.add(8, "Delaware");
+        stateNames.add(9, "Florida");
+        stateNames.add(10, "Georgia");
+        stateNames.add(11, "Hawaii");
+        stateNames.add(12, "Idaho");
+        stateNames.add(13, "Illinois");
+        stateNames.add(14, "Indiana");
+        stateNames.add(15, "Iowa");
+        stateNames.add(16, "Kansas");
+        stateNames.add(17, "Kentucky");
+        stateNames.add(18, "Louisiana");
+        stateNames.add(19, "Maine");
+        stateNames.add(20, "Maryland");
+        stateNames.add(21, "Massachusetts");
+        stateNames.add(22, "Michigan");
+        stateNames.add(23, "Minnesota");
+        stateNames.add(24, "Mississippi");
+        stateNames.add(25, "Missouri");
+        stateNames.add(26, "Montana");
+        stateNames.add(27, "Nebraska");
+        stateNames.add(28, "Nevada");
+        stateNames.add(29, "New Hampshire");
+        stateNames.add(30, "New Jersey");
+        stateNames.add(31, "New Mexico");
+        stateNames.add(32, "New York");
+        stateNames.add(33, "North Carolina");
+        stateNames.add(34, "North Dakota");
+        stateNames.add(35, "Ohio");
+        stateNames.add(36, "Oklahoma");
+        stateNames.add(37, "Oregon");
+        stateNames.add(38, "Pennsylvania");
+        stateNames.add(39, "Rhode Island");
+        stateNames.add(40, "South Carolina");
+        stateNames.add(41, "South Dakota");
+        stateNames.add(42, "Tennessee");
+        stateNames.add(43, "Texas");
+        stateNames.add(44, "Utah");
+        stateNames.add(45, "Vermont");
+        stateNames.add(46, "Virginia");
+        stateNames.add(47, "Washington");
+        stateNames.add(48, "West Virginia");
+        stateNames.add(49, "Wisconsin");
+        stateNames.add(50, "Wyoming");
 
-        //TODO add more states here
         return stateNames;
     }
 

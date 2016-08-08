@@ -11,8 +11,8 @@ import android.widget.EditText;
 
 import com.github.denisura.mordor.R;
 import com.github.denisura.mordor.SingleFragmentActivity;
-import com.github.denisura.mordor.profile.collection.ProfileCollectionItemViewHolder;
-import com.github.denisura.mordor.profile.collection.ViewCollectionFragment;
+import com.github.denisura.mordor.ui.profile.collection.ProfileCollectionItemViewHolder;
+import com.github.denisura.mordor.ui.profile.collection.ViewCollectionFragment;
 import com.github.denisura.mordor.utils.WidgetUtilities;
 
 import butterknife.BindView;
@@ -71,6 +71,11 @@ public class TrackerWidgetConfigureActivity extends SingleFragmentActivity
         resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mAppWidgetId);
         setResult(RESULT_OK, resultValue);
         finish();
+    }
+
+    @Override
+    public void onProfileDeleted(long profileId) {
+
     }
 
 

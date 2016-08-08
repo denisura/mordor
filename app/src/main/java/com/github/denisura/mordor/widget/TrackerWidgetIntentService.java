@@ -11,9 +11,9 @@ import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.github.denisura.mordor.R;
-import com.github.denisura.mordor.database.AppProvider;
-import com.github.denisura.mordor.model.ProfileModel;
-import com.github.denisura.mordor.profile.ViewProfileActivity;
+import com.github.denisura.mordor.data.database.AppProvider;
+import com.github.denisura.mordor.data.model.ProfileModel;
+import com.github.denisura.mordor.ui.profile.ViewProfileActivity;
 import com.github.denisura.mordor.utils.WidgetUtilities;
 
 import static com.github.denisura.mordor.utils.Utilities.formatCurrentRate;

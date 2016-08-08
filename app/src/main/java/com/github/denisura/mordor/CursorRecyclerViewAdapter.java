@@ -66,6 +66,21 @@ public abstract class CursorRecyclerViewAdapter<VH extends RecyclerView.ViewHold
         return 0;
     }
 
+    public long getNearestItemId(int position) {
+        if (mDataValid && mCursor != null && mCursor.moveToPosition(position)) {
+            if (mCursor.isLast() && mCursor.isFirst()) {
+                return 0;
+            }
+            if (mCursor.isLast()) {
+                mCursor.moveToPrevious();
+            } else {
+                mCursor.moveToNext();
+            }
+            return mCursor.getLong(mRowIdColumn);
+        }
+        return 0;
+    }
+
     @Override
     public void setHasStableIds(boolean hasStableIds) {
         super.setHasStableIds(true);

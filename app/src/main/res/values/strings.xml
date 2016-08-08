@@ -39,5 +39,4 @@
 
     <string name="intent_action_data_updated" translatable="false">com.github.denisura.mordor.app.ACTION_DATA_UPDATED</string>
 
-
 </resources>

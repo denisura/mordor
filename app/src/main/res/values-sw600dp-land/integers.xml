@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="col_number">1</integer>
     <integer name="collection_orientation">1</integer>
 </resources>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="cardview_profile_view" type="layout">@layout/cardview_profile_port</item>
+</resources>

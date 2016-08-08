@@ -2,7 +2,7 @@ package com.github.denisura.mordor;
 
 import android.app.Application;
 
-import com.github.denisura.mordor.sync.ProfileSyncAdapter;
+import com.github.denisura.mordor.data.sync.ProfileSyncAdapter;
 
 import net.danlew.android.joda.JodaTimeAndroid;
 

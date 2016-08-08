@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".profile.collection.ViewCollectionActivity"
+            android:name=".ui.profile.collection.ViewCollectionActivity"
             android:label="@string/title_profiles"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar">
@@ -30,25 +30,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".profile.NewProfileActivity"
+            android:name=".ui.profile.NewProfileActivity"
             android:label="@string/title_activity_new_profile"
-            android:parentActivityName=".profile.collection.ViewCollectionActivity"
+            android:parentActivityName=".ui.profile.collection.ViewCollectionActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.github.denisura.mordor.profile.collection.ViewCollectionActivity"/>
+                android:value=".ui.profile.collection.ViewCollectionActivity"/>
         </activity>
         <activity
-            android:name=".profile.ViewProfileActivity"
+            android:name=".ui.profile.ViewProfileActivity"
             android:label="@string/title_activity_view_profile"
-            android:parentActivityName=".profile.collection.ViewCollectionActivity"
+            android:parentActivityName=".ui.profile.collection.ViewCollectionActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.github.denisura.mordor.profile.collection.ViewCollectionActivity"/>
+                android:value=".ui.profile.collection.ViewCollectionActivity"/>
         </activity>
         <activity
-            android:name=".splash.SplashActivity"
+            android:name=".ui.splash.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar">
@@ -66,7 +66,7 @@
             android:syncable="true"/>
 
         <!-- SyncAdapter's dummy authentication service -->
-        <service android:name=".sync.AuthenticatorService">
+        <service android:name=".data.sync.AuthenticatorService">
             <intent-filter>
                 <action android:name="android.accounts.AccountAuthenticator"/>
             </intent-filter>
@@ -78,7 +78,7 @@
 
         <!-- The SyncAdapter service -->
         <service
-            android:name=".sync.ProfileSyncService"
+            android:name=".data.sync.ProfileSyncService"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.content.SyncAdapter"/>
