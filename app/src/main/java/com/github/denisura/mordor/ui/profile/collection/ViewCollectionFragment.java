@@ -3,6 +3,8 @@ package com.github.denisura.mordor.ui.profile.collection;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
@@ -50,6 +52,7 @@ public class ViewCollectionFragment extends Fragment
     public void onAttach(Context context) {
         super.onAttach(context);
         mCallbacks = (ProfileCollectionItemViewHolder.Callbacks) context;
+        Log.d(LOG_TAG, "onAttach mAdapter.mSelected  ");
     }
 
 
@@ -131,7 +134,7 @@ public class ViewCollectionFragment extends Fragment
 
         mAdapter.swapCursor(data);
 
-        if (data != null) {
+        if (data != null && data.getCount() > 0) {
             if (mAdapter.mSelected > 0) {
                 while (data.moveToNext()) {
                     ProfileModel profileModel = new ProfileModel(data);
@@ -146,6 +149,7 @@ public class ViewCollectionFragment extends Fragment
                 mAdapter.mSelected = profileModel.getId();
                 mPosition = 0;
             }
+            handler.sendEmptyMessage(UPDATE_SELECTED);
         }
 
         mRecyclerView.getLayoutManager().scrollToPosition(mPosition);
@@ -158,6 +162,18 @@ public class ViewCollectionFragment extends Fragment
             mAdapter.changeCursor(null);
         }
     }
+
+    final int UPDATE_SELECTED = 1;
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            if (msg.what == UPDATE_SELECTED) {
+                if (mAdapter.mSelected > 0) {
+                    mCallbacks.onProfileDeleted(mAdapter.mSelected);
+                }
+            }
+        }
+    };
 
 
 }
