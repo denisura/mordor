@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ga_trackingId">UA-82195423-1</string>
+    <bool name="ga_autoActivityTracking">true</bool>
+    <bool name="ga_reportUncaughtExceptions">true</bool>
+    <screenName name="com.github.denisura.mordor.ui.profile.NewProfileActivity">
+        New Profile
+    </screenName>
+    <screenName name="com.github.denisura.mordor.ui.profile.collection.ViewCollectionActivity">
+        View Profile Collections
+    </screenName>
+    <screenName name="com.github.denisura.mordor.ui.profile.ViewProfileActivity">
+        View Profile
+    </screenName>
+    <screenName name="com.github.denisura.mordor.ui.splash.SplashActivity">
+        Splash
+    </screenName>
+    <screenName name="com.github.denisura.mordor.widget.TrackerWidgetConfigureActivity">
+        Widget Configuration
+    </screenName>
+</resources>

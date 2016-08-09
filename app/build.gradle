@@ -19,12 +19,19 @@ android {
     compileSdkVersion 24
     buildToolsVersion "24.0.0"
 
+    dexOptions {
+        incremental true
+        javaMaxHeapSize "4g"
+    }
+
     defaultConfig {
         applicationId "com.github.denisura.mordor"
         minSdkVersion 16
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
+        // Enabling multidex support.
+        multiDexEnabled true
     }
 
     signingConfigs {
@@ -67,6 +74,7 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.2.1'
     compile 'com.github.PhilJay:MPAndroidChart:v2.2.5'
     compile 'com.google.code.gson:gson:2.4'
+    compile 'com.google.android.gms:play-services-analytics:9.4.0'
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'

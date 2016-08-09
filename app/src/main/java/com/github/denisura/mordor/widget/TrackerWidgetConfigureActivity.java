@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.widget.EditText;
 
+import com.github.denisura.mordor.AndroidApplication;
 import com.github.denisura.mordor.R;
 import com.github.denisura.mordor.SingleFragmentActivity;
 import com.github.denisura.mordor.ui.profile.collection.ProfileCollectionItemViewHolder;
@@ -35,8 +35,6 @@ public class TrackerWidgetConfigureActivity extends SingleFragmentActivity
 
 
     int mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
-    EditText mAppWidgetText;
-
 
     @BindView(R.id.toolbar)
     public Toolbar mToolbar;
@@ -49,22 +47,10 @@ public class TrackerWidgetConfigureActivity extends SingleFragmentActivity
     public void onProfileSelected(long profileId) {
         Log.i("TrackerWidget", "Selected Profile " + profileId);
 
-
         final Context context = TrackerWidgetConfigureActivity.this;
 
         WidgetUtilities.saveProfilePref(context, PREFS_NAME, mAppWidgetId, profileId);
-
-
-//        // It is the responsibility of the configuration activity to update the app widget
-//        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-
         updateWidgets(context);
-        //TrackerWidgetProvider.updateAppWidget(context, appWidgetManager, mAppWidgetId);
-
-
-
-
-
 
         // Make sure we pass back the original appWidgetId
         Intent resultValue = new Intent();
@@ -91,6 +77,7 @@ public class TrackerWidgetConfigureActivity extends SingleFragmentActivity
         // Set the result to CANCELED.  This will cause the widget host to cancel
         // out of the widget placement if the user presses the back button.
         setResult(RESULT_CANCELED);
+        ((AndroidApplication) getApplication()).startTracking();
 
         super.onCreate(icicle);
         ButterKnife.bind(this);

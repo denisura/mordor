@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 
+import com.github.denisura.mordor.AndroidApplication;
 import com.github.denisura.mordor.R;
 import com.github.denisura.mordor.SingleFragmentActivity;
 import com.github.denisura.mordor.ui.profile.HistoryChartFragment;
@@ -66,6 +67,7 @@ public class ViewCollectionActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ((AndroidApplication) getApplication()).startTracking();
         ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
 

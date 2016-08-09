@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.github.denisura.mordor.AndroidApplication;
 import com.github.denisura.mordor.R;
 import com.github.denisura.mordor.TwoPaneFragmentActivity;
 import com.github.denisura.mordor.ui.profile.collection.ViewCollectionActivity;
@@ -49,9 +50,11 @@ public class ViewProfileActivity extends TwoPaneFragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ((AndroidApplication) getApplication()).startTracking();
         ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Log.i(LOG_TAG, "onCreate");
     }
 

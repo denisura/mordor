@@ -9,6 +9,7 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.util.Log;
 
+import com.github.denisura.mordor.AndroidApplication;
 import com.github.denisura.mordor.R;
 import com.github.denisura.mordor.data.database.AppProvider;
 import com.github.denisura.mordor.ui.profile.NewProfileActivity;
@@ -26,6 +27,7 @@ public class SplashActivity extends FragmentActivity implements LoaderManager.Lo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
+        ((AndroidApplication) getApplication()).startTracking();
 
         ProfileSyncAdapter.initializeSyncAdapter(this);
         getSupportLoaderManager().initLoader(PROFILE_LOADER, null, this);
