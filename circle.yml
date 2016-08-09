@@ -25,9 +25,9 @@ test:
     # wait for it to have booted
     - circle-android wait-for-boot
     # run tests  against the emulator.
-    - ./gradlew connectedAndroidTest -PZILLOW_PARTNER_ID=$ZILLOW_PARTNER_ID
+    - ./gradlew connectedAndroidTest -PZILLOW_PARTNER_ID=$ZILLOW_PARTNER_ID -PpreDexEnable=false -Pcom.android.build.threadPoolSize=1 -Dorg.gradle.parallel=false -Dorg.gradle.jvmargs="-Xms512m -Xmx512m" -Dorg.gradle.daemon=false
     # build and sign release.
-    - ./gradlew assembleRelease -PMORDOR_SIGNING_STORE_PASSWORD=$MORDOR_SIGNING_STORE_PASSWORD -PMORDOR_SIGNING_KEY_PASSWORD=$MORDOR_SIGNING_KEY_PASSWORD -PMORDOR_SIGNING_KEY_ALIAS=$MORDOR_SIGNING_KEY_ALIAS -PZILLOW_PARTNER_ID=$ZILLOW_PARTNER_ID
+    - ./gradlew assembleRelease -PMORDOR_SIGNING_STORE_PASSWORD=$MORDOR_SIGNING_STORE_PASSWORD -PMORDOR_SIGNING_KEY_PASSWORD=$MORDOR_SIGNING_KEY_PASSWORD -PMORDOR_SIGNING_KEY_ALIAS=$MORDOR_SIGNING_KEY_ALIAS -PZILLOW_PARTNER_ID=$ZILLOW_PARTNER_ID -PpreDexEnable=false -Pcom.android.build.threadPoolSize=1 -Dorg.gradle.parallel=false -Dorg.gradle.jvmargs="-Xms512m -Xmx512m" -Dorg.gradle.daemon=false
     # copy the build outputs to artifacts
     - cp -r app/build/outputs $CIRCLE_ARTIFACTS
     # copy the test results to the test results directory.
