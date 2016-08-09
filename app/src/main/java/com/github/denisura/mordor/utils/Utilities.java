@@ -10,12 +10,15 @@ import com.github.denisura.mordor.data.database.ProfileColumns;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 public class Utilities {
 
     private static final String LOG_TAG = Utilities.class.getSimpleName();
+
 
     public static String formatLoanToValueBucket(Context context, String value) {
 
@@ -66,7 +69,7 @@ public class Utilities {
 
     public static List<String> getStateCodes() {
         List<String> stateCodes = new ArrayList<String>();
-        stateCodes.add(0, "");
+        stateCodes.add(0, "US");
         stateCodes.add(1, "AL");
         stateCodes.add(2, "AK");
         stateCodes.add(3, "AZ");
@@ -124,7 +127,7 @@ public class Utilities {
 
     public static List<String> getStateNames() {
         List<String> stateNames = new ArrayList<String>();
-        stateNames.add(0, "");
+        stateNames.add(0, "National");
         stateNames.add(1, "Alabama");
         stateNames.add(2, "Alaska");
         stateNames.add(3, "Arizona");
@@ -180,13 +183,24 @@ public class Utilities {
     }
 
 
+    private static final Map<String, String> sDownpayment;
+
+    static {
+        sDownpayment = new HashMap<>();
+        sDownpayment.put("VeryHigh", "20% or higher");
+        sDownpayment.put("High", "5% - 20%");
+        sDownpayment.put("Normal", "Less than 5%");
+    }
+
+
+
+
     public static List<String> getDownpaymentCodes() {
 
         List<String> downpaymentCodes = new ArrayList<String>();
-        downpaymentCodes.add(0, "");
-        downpaymentCodes.add(1, "VeryHigh");
-        downpaymentCodes.add(2, "High");
-        downpaymentCodes.add(3, "Normal");
+        downpaymentCodes.add(0, "VeryHigh");
+        downpaymentCodes.add(1, "High");
+        downpaymentCodes.add(2, "Normal");
         return downpaymentCodes;
     }
 
@@ -194,10 +208,9 @@ public class Utilities {
     public static List<String> getDownpaymentValues() {
 
         List<String> downpaymentValues = new ArrayList<String>();
-        downpaymentValues.add(0, "");
-        downpaymentValues.add(1, "20% or higher");
-        downpaymentValues.add(2, "5% - 20%");
-        downpaymentValues.add(3, "Less than 5%");
+        downpaymentValues.add(0, "20% or higher");
+        downpaymentValues.add(1, "5% - 20%");
+        downpaymentValues.add(2, "Less than 5%");
         return downpaymentValues;
     }
 
@@ -205,20 +218,18 @@ public class Utilities {
     public static List<String> getCreditScoreCodes() {
 
         List<String> creditScoreCodes = new ArrayList<String>();
-        creditScoreCodes.add(0, "");
-        creditScoreCodes.add(1, "VeryHigh");
-        creditScoreCodes.add(2, "High");
-        creditScoreCodes.add(3, "Low");
+        creditScoreCodes.add(0, "VeryHigh");
+        creditScoreCodes.add(1, "High");
+        creditScoreCodes.add(2, "Low");
         return creditScoreCodes;
     }
 
     public static List<String> getCreditScoreValues() {
 
         List<String> creditScoreValues = new ArrayList<String>();
-        creditScoreValues.add(0, "");
-        creditScoreValues.add(1, "740 - 850");
-        creditScoreValues.add(2, "680 - 739");
-        creditScoreValues.add(3, "350 - 679");
+        creditScoreValues.add(0, "740 - 850");
+        creditScoreValues.add(1, "680 - 739");
+        creditScoreValues.add(2, "350 - 679");
         return creditScoreValues;
     }
 
@@ -226,12 +237,11 @@ public class Utilities {
     public static List<String> getLoanProgramsCodes() {
 
         List<String> programValues = new ArrayList<String>();
-        programValues.add(0, "");
-        programValues.add(1, "Fixed30Year");
-        programValues.add(2, "Fixed20Year");
-        programValues.add(3, "Fixed15Year");
-        programValues.add(4, "ARM5");
-        programValues.add(5, "ARM7");
+        programValues.add(0, "Fixed30Year");
+        programValues.add(1, "Fixed20Year");
+        programValues.add(2, "Fixed15Year");
+        programValues.add(3, "ARM5");
+        programValues.add(4, "ARM7");
         return programValues;
     }
 
@@ -239,12 +249,11 @@ public class Utilities {
     public static List<String> getLoanProgramsValues() {
 
         List<String> programValues = new ArrayList<String>();
-        programValues.add(0, "");
-        programValues.add(1, "30 year fixed");
-        programValues.add(2, "20 year fixed");
-        programValues.add(3, "15 year fixed");
-        programValues.add(4, "5/1 ARM");
-        programValues.add(5, "7/1 ARM");
+        programValues.add(0, "30 year fixed");
+        programValues.add(1, "20 year fixed");
+        programValues.add(2, "15 year fixed");
+        programValues.add(3, "5/1 ARM");
+        programValues.add(4, "7/1 ARM");
         return programValues;
     }
 
