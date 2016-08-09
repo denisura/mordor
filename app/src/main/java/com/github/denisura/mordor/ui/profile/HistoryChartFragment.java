@@ -27,6 +27,8 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.listener.ChartTouchListener;
 import com.github.mikephil.charting.listener.OnChartGestureListener;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
@@ -38,6 +40,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+import static com.github.denisura.mordor.R.id.adView;
 import static com.github.denisura.mordor.R.id.lineChart;
 
 public class HistoryChartFragment extends Fragment
@@ -52,6 +55,9 @@ public class HistoryChartFragment extends Fragment
 
     @BindView(lineChart)
     LineChart mChart;
+
+    @BindView(adView)
+    AdView mAdView;
 
     public static HistoryChartFragment newInstance(long profileId) {
         Bundle args = new Bundle();
@@ -87,6 +93,11 @@ public class HistoryChartFragment extends Fragment
 
         mChart.setPinchZoom(false);
         mChart.getLegend().setEnabled(false);
+
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        mAdView.loadAd(adRequest);
 
         return rootView;
     }

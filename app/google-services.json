@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "720108078851",
+    "firebase_url": "https://fir-mordor.firebaseio.com",
+    "project_id": "firebase-mordor",
+    "storage_bucket": "firebase-mordor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720108078851:android:0cdb118083cb0a92",
+        "android_client_info": {
+          "package_name": "com.github.denisura.mordor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "720108078851-ba3mqvkfi2m309jf23bitfrso85e4s56.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "720108078851-3g6b9nap0o02kj2o0g25dhml0qht7g65.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDT2t0_sooRc2rybXviWBNh-H2aadt6zg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-82195423-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
