@@ -23,7 +23,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -56,16 +55,7 @@ public class RateHistoryDataAPI {
 
     public RateHistoryDataAPI(Context context) {
         mContext = context;
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-
-        // set your desired log level
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-
         OkHttpClient httpClient = new OkHttpClient();
-
-        // add logging as last interceptor
-//        httpClient.interceptors().add(logging);
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())

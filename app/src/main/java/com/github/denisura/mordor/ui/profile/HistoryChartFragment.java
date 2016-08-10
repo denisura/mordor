@@ -138,11 +138,11 @@ public class HistoryChartFragment extends Fragment
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         Log.d(LOG_TAG, "onLoadFinished");
         if (null == data) {
-            Toast.makeText(getActivity(), "Oops something went wrong", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), getContext().getString(R.string.something_wrong), Toast.LENGTH_SHORT).show();
             return;
         }
         if (data.getCount() < 1) {
-            mChart.setNoDataTextDescription("No historical data is available at this moment.");
+            mChart.setNoDataTextDescription(getContext().getString(R.string.history_chart_no_data));
             return;
         }
         handleHistoryData(data);
@@ -170,16 +170,6 @@ public class HistoryChartFragment extends Fragment
 
 
         LineDataSet set;
-
-//        if (mChart.getData() != null &&
-//                mChart.getData().getDataSetCount() > 0) {
-//            set = (LineDataSet) mChart.getData().getDataSetByIndex(0);
-//            set.setYVals(yVals);
-//            mChart.getData().notifyDataChanged();
-//            mChart.notifyDataSetChanged();
-//            return;
-//        }
-
 
         set = new LineDataSet(yVals, "");
 

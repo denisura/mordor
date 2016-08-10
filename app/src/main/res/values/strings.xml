@@ -39,4 +39,10 @@
 
     <string name="intent_action_data_updated" translatable="false">com.github.denisura.mordor.app.ACTION_DATA_UPDATED</string>
 
+
+    <string name="history_chart_no_data">No historical data is available at this moment.</string>
+    <string name="something_wrong">"Oops something went wrong"</string>
+    <string name="create_new_rate_tracker">Create new rate tracker</string>
+
+
 </resources>
